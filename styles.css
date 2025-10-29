@@ -1,0 +1,183 @@
+:root {
+    --primary-font: 'Georgia', serif;
+    --text-color: #f0f0f0;
+    --bg-color: #1a1a1a;
+    --ui-bg-color: rgba(0, 0, 0, 0.7);
+    --border-color: #444;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--primary-font);
+    overflow: hidden;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#scene-container {
+    position: relative;
+    width: 80%;
+    max-width: 1024px;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+#scene-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease-in-out;
+}
+
+#scene-image.blur {
+    filter: blur(5px) brightness(0.7);
+}
+
+#objects-container,
+#portals-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Parent container doesn't capture clicks */
+}
+
+.scene-object {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    pointer-events: all; /* Objects are clickable */
+    object-fit: contain; /* Prevents stretching */
+}
+
+.scene-object:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 150, 0.7));
+}
+
+#portals-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.portal {
+    position: absolute;
+    background-color: transparent;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    pointer-events: all; /* Portals are clickable */
+}
+
+.portal:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+#ui-container {
+    width: 80%;
+    max-width: 1024px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#time-display {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#narration-container {
+    background-color: var(--ui-bg-color);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    width: 100%;
+    height: 100px;
+    overflow-y: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#narration-text {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Loader Styles */
+.hidden {
+    display: none !important;
+}
+
+#loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Cutscene Styles */
+#cutscene-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+#cutscene-text {
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    max-width: 80%;
+    line-height: 1.5;
+}

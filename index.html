@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Horrors of War</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="scene-container">
+            <img id="scene-image" src="background.png" alt="A somber scene from a war-torn land.">
+            <div id="objects-container"></div>
+            <div id="portals-container"></div>
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>A memory is forming...</p>
+            </div>
+            <div id="cutscene-overlay" class="hidden">
+                <p id="cutscene-text"></p>
+            </div>
+        </div>
+        <div id="ui-container">
+            <div id="time-display">Time: 07:00</div>
+            <div id="narration-container">
+                <p id="narration-text">You wake up. The air is still and heavy. Another day begins.</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
